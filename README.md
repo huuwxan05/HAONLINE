@@ -9,6 +9,14 @@ Mạng xã hội độc lập gồm máy chủ Node.js, ứng dụng web PWA, �
 - Android, iOS, Windows: mã nguồn client hoàn chỉnh; cần toolchain tương ứng để build.
 - WebRTC cần thêm TURN server khi triển khai Internet thực tế.
 
+## Triển khai công khai
+
+- Mã nguồn: https://github.com/huuwxan05/HAONLINE
+- Deploy bằng Render Blueprint: https://render.com/deploy?repo=https://github.com/huuwxan05/HAONLINE
+- Repo đã có `render.yaml` và `Dockerfile`; Render tự chạy healthcheck tại `/api/health`.
+- Gói Render miễn phí dùng filesystem tạm: SQLite và uploads sẽ mất khi redeploy/restart. Muốn giữ dữ liệu, dùng gói có disk gắn vào `/data`, hoặc chạy Docker/VPS với volume `haonline-data`.
+- Trước khi mở công khai thật, đổi mật khẩu admin, cấu hình `PUBLIC_URL`, SMTP và sao lưu định kỳ.
+
 ## Tính năng
 
 - Tài khoản: đăng ký, đăng nhập, xác minh email, quên mật khẩu, OTP, 2FA TOTP, quản lý phiên.
