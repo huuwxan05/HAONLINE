@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.application'
+}
+
+def haonlineBaseUrl = project.findProperty('HAONLINE_BASE_URL')
+    ?: System.getenv('HAONLINE_BASE_URL')
+    ?: 'http://127.0.0.1:8080'
+
+android {
+    namespace 'com.haonline.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.haonline.app'
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName '1.0.0'
+        buildConfigField 'String', 'HAONLINE_BASE_URL', "\"${haonlineBaseUrl}\""
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    signingConfigs {
+        release {
+            def storePath = System.getenv('HAONLINE_KEYSTORE')
+            if (storePath) {
+                storeFile file(storePath)
+                storePassword System.getenv('HAONLINE_KEYSTORE_PASSWORD')
+                keyAlias System.getenv('HAONLINE_KEY_ALIAS')
+                keyPassword System.getenv('HAONLINE_KEY_PASSWORD')
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-debug'
+        }
+        release {
+            minifyEnabled false
+            shrinkResources false
+            if (System.getenv('HAONLINE_KEYSTORE')) {
+                signingConfig signingConfigs.release
+            }
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}

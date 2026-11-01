@@ -1,0 +1,26 @@
+{
+  "name": "haonline",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HAONLINE - independent social network ecosystem",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "dev": "node --no-warnings server/src/index.js",
+    "start": "NODE_ENV=production node --no-warnings server/src/index.js",
+    "test": "node --no-warnings --test server/test/*.test.js",
+    "test:security": "node --no-warnings --test server/test/security.test.js",
+    "migrate": "node --no-warnings server/src/migrate.js",
+    "backup": "node --no-warnings server/src/backup.js",
+    "web:build": "node scripts/build-web.js",
+    "seed": "node --no-warnings server/src/seed.js",
+    "android:build": "sh scripts/build-android.sh",
+    "windows:package": "sh scripts/package-windows.sh",
+    "ios:open": "sh scripts/open-ios.sh"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

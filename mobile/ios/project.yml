@@ -1,0 +1,34 @@
+name: HAONLINE
+options:
+  bundleIdPrefix: com.haonline
+  deploymentTarget:
+    iOS: "15.0"
+  createIntermediateGroups: true
+  xcodeVersion: "15.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_USER_SCRIPT_SANDBOXING: "YES"
+    HAONLINE_BASE_URL: "https://haonline.example.com"
+targets:
+  HAONLINE:
+    type: application
+    platform: iOS
+    sources:
+      - path: HAONLINE
+        excludes:
+          - Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.haonline.app
+        PRODUCT_NAME: HAONLINE
+        INFOPLIST_FILE: HAONLINE/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        SUPPORTS_MACCATALYST: "NO"
+        IPHONEOS_DEPLOYMENT_TARGET: "15.0"
+    scheme:
+      gatherCoverageData: false

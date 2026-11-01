@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: haonline
+    runtime: docker
+    plan: free
+    region: oregon
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "8080"
+      - key: APP_SECRET
+        generateValue: true
+      - key: DATA_DIR
+        value: /data
+      - key: WEB_DIR
+        value: /app/dist/web
+      - key: MAIL_DEV_MODE
+        value: "true"
+      - key: SESSION_DAYS
+        value: "30"

@@ -1,0 +1,33 @@
+{
+  "name": "HAONLINE",
+  "short_name": "HAONLINE",
+  "description": "Mạng xã hội trọn vẹn: kết nối, chia sẻ, nhắn tin, gọi điện, livestream và mua bán.",
+  "lang": "vi",
+  "dir": "ltr",
+  "start_url": "/#/feed",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#060814",
+  "theme_color": "#060814",
+  "categories": ["social", "communication", "shopping"],
+  "icons": [
+    {
+      "src": "/assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Bảng tin", "url": "/#/feed" },
+    { "name": "Tin nhắn", "url": "/#/messages" },
+    { "name": "Thông báo", "url": "/#/notifications" }
+  ]
+}

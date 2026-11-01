@@ -1,0 +1,50 @@
+{
+  "name": "haonline-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HAONLINE desktop client for Windows",
+  "main": "main.js",
+  "type": "commonjs",
+  "author": "HAONLINE",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-builder --win",
+    "package:dir": "electron-builder --win --dir"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.haonline.desktop",
+    "productName": "HAONLINE",
+    "copyright": "Copyright HAONLINE",
+    "asar": true,
+    "files": [
+      "main.js",
+      "offline.html",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "artifactName": "HAONLINE-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "HAONLINE"
+    }
+  }
+}

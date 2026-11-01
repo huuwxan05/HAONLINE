@@ -1,0 +1,39 @@
+services:
+  haonline:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    image: haonline:1.0.0
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-8080}:8080"
+    env_file:
+      - ../.env
+    environment:
+      NODE_ENV: production
+      PORT: 8080
+      DATA_DIR: /data
+      WEB_DIR: /app/dist/web
+    volumes:
+      - haonline-data:/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8080/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+
+  backup:
+    image: haonline:1.0.0
+    profiles: ["tools"]
+    env_file:
+      - ../.env
+    environment:
+      NODE_ENV: production
+      DATA_DIR: /data
+    volumes:
+      - haonline-data:/data
+    command: ["node", "--no-warnings", "server/src/backup.js", "--full"]
+
+volumes:
+  haonline-data:

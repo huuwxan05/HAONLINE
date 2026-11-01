@@ -1,0 +1,22 @@
+# Memoria del proyecto
+
+- 2026-11-01: Proyecto HAONLINE: backend Node 22 + Express + `node:sqlite`, SPA vanilla en `web/`, clientes WebView Android/iOS y Electron Windows. UI en vietnamita.
+- 2026-11-01: Comandos clave: `npm test`, `npm run web:build`, `npm run migrate`, `npm run seed`, `npm run backup -- --full`.
+- 2026-11-01: En produccion `NODE_ENV=production` exige `APP_SECRET`; servir `WEB_DIR=./dist/web`. La app carga `.env` de la raiz.
+- 2026-11-01: Tests usan datos temporales aislados; ultimo resultado 14 tests OK.
+- 2026-11-01: No hay Docker, Electron/electron-builder, Wine ni Xcode en este entorno; Android SDK y Gradle si estan en /opt. Windows/iOS no se pudieron compilar aqui.
+- 2026-11-01: Para capturas usar `hefesto_pagina` con ruta de archivo o URL; no escribir Playwright. Para servidores temporales usar `setsid nohup ... & echo $! >/tmp/x.pid` y parar con `kill $(cat /tmp/x.pid)`; nunca `pkill -f`.
+- 2026-11-01: La auditoria UI movil/escritorio se hizo con servidor temporal, login auxiliar y script inyectado; rutas SPA con hash (`/#/settings`), no `/settings`.
+- 2026-11-01: Corregido desbordamiento movil del topbar/nav y bug de avatares de 1200px en la lista de conversaciones; ahora avatar 46x46 y `min-width: 0`. Auditoria final: 25 rutas moviles y 25 escritorio sin desbordamiento de pagina; tabs largas hacen scroll horizontal contenido.
+- 2026-11-01: Endurecido `desktop/main.js` (URL validada, enlaces externos con whitelist, sandbox, single instance) e icono Windows en `desktop/assets/icon.ico`.
+- 2026-11-01: Scaffold iOS con XcodeGen en `mobile/ios/project.yml`; build setting `HAONLINE_BASE_URL`; Android usa `HAONLINE_BASE_URL` como property/env.
+- 2026-11-01: Uploads ahora aceptan solo MIME permitidos y extension derivada del MIME, no del nombre. `max_upload_mb` de admin se respeta. `.gitignore` ignora `data/` en la raiz.
+- 2026-11-01: Documentacion creada en `README.md` y `docs/`: configuracion, despliegue, API, seguridad, pruebas y clientes.
+- 2026-11-01: Pendiente antes de entrega real: rotar admin/dev DB, borrar datos demo, configurar SMTP/VAPID/Stripe/TURN y compilar clientes en su toolchain.
+- 2026-11-01: Verificacion final: 14/14 tests OK, build web 28 archivos, smoke production OK. Servidores temporales detenidos y helpers de captura eliminados del proyecto.
+- 2026-11-01: Correccion: Android SDK (platforms 34/36, build-tools 34) y Gradle estan en /opt; el build Android si es posible. Cliente Android ahora permite cambiar servidor en la app y usa http://127.0.0.1:8080 por defecto.
+- 2026-11-01: APK debug compilado con Hefesto (app-debug.apk, 23K); UI Android permite cambiar servidor. Servidor local de prueba en http://127.0.0.1:8080 con `.env` (HOST=127.0.0.1, WEB_DIR=./dist/web), PID /tmp/haonline-local.pid.
+- 2026-11-01: APK final reconstruido tras restringir origen confiable por esquema/host/puerto: 36K, sha256 5b3d9c59…4125a. Servidor web local sigue activo en 127.0.0.1:8080 (version actual haonline-3d04f2568e87).
+- 2026-11-01: Rediseño visual web/Android WebView: fondo aurora animado, tarjetas glass, hero del feed con arte SVG local y parallax, animaciones de entrada, transiciones de ruta, arte en login. Build 28 archivos `haonline-d5a38165016c`. Capturas login/feed en `.hefesto/capturas/web-redesign-*.png`; sin overflow en 1280 y 390; consola limpia; 14/14 tests OK. Usuario temporal de captura eliminado.
+- 2026-11-01: Añadido botón «Đăng xuất» visible en barra lateral, topbar (texto en escritorio, icono en móvil), menú «Thêm» móvil y Cài đặt → Bảo mật (sesión actual), con confirmación. Build `haonline-3d04f2568e87`; 14/14 tests OK y login sin errores de consola.
+- 2026-11-01: Corregida cache obsoleta que impedía ver el logout: estáticos web ahora `Cache-Control: no-cache`; service worker usa red primero para `/js/` y `/css/`, recarga clientes al activar una versión nueva y `boot.js` recarga en `controllerchange`. Servidor local activo en 127.0.0.1:8080 con build `haonline-3d04f2568e87`.

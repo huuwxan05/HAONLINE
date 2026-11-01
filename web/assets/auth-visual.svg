@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" fill="none">
+  <defs>
+    <radialGradient id="aHalo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(390 300) rotate(90) scale(290)">
+      <stop stop-color="#8b5cf6" stop-opacity=".6"/>
+      <stop offset=".55" stop-color="#22d3ee" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#ff4d8d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aOrb" x1="284" y1="204" x2="498" y2="412" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ddd6fe"/>
+      <stop offset=".4" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="aBar" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="aStroke" x1="120" y1="120" x2="300" y2="260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".04"/>
+    </linearGradient>
+    <filter id="aSoft" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="aGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="390" cy="300" r="290" fill="url(#aHalo)" filter="url(#aSoft)"/>
+  <g opacity=".8">
+    <ellipse cx="390" cy="300" rx="308" ry="118" transform="rotate(-16 390 300)" stroke="#fff" stroke-opacity=".18" stroke-width="1.2"/>
+    <ellipse cx="390" cy="300" rx="246" ry="196" transform="rotate(46 390 300)" stroke="url(#aBar)" stroke-opacity=".5" stroke-width="1"/>
+    <ellipse cx="390" cy="300" rx="336" ry="168" transform="rotate(24 390 300)" stroke="#fff" stroke-opacity=".1" stroke-width=".8"/>
+  </g>
+
+  <circle cx="390" cy="300" r="142" fill="url(#aOrb)" opacity=".16" filter="url(#aSoft)"/>
+  <circle cx="390" cy="300" r="108" fill="url(#aOrb)" filter="url(#aGlow)"/>
+  <circle cx="354" cy="262" r="38" fill="#fff" opacity=".18" filter="url(#aSoft)"/>
+  <circle cx="548" cy="184" r="7" fill="#22d3ee" filter="url(#aGlow)"/>
+  <circle cx="238" cy="438" r="5" fill="#ff7ab8" filter="url(#aGlow)"/>
+  <circle cx="570" cy="446" r="4" fill="#c4b5fd"/>
+
+  <g transform="translate(74 104)" filter="url(#aGlow)">
+    <rect width="230" height="132" rx="24" fill="#080d1c" fill-opacity=".8" stroke="url(#aStroke)"/>
+    <circle cx="42" cy="42" r="19" fill="url(#aBar)" opacity=".9"/>
+    <rect x="74" y="30" width="96" height="8" rx="4" fill="#fff" fill-opacity=".82"/>
+    <rect x="74" y="48" width="62" height="6" rx="3" fill="#fff" fill-opacity=".28"/>
+    <rect x="24" y="78" width="182" height="7" rx="3.5" fill="#fff" fill-opacity=".16"/>
+    <rect x="24" y="94" width="134" height="7" rx="3.5" fill="#fff" fill-opacity=".1"/>
+    <circle cx="186" cy="42" r="9" fill="#ff4d8d" fill-opacity=".8"/>
+  </g>
+
+  <g transform="translate(470 370)" filter="url(#aGlow)">
+    <rect width="198" height="118" rx="24" fill="#080d1c" fill-opacity=".82" stroke="url(#aStroke)"/>
+    <rect x="22" y="22" width="48" height="48" rx="15" fill="url(#aBar)" opacity=".85"/>
+    <rect x="84" y="28" width="74" height="7" rx="3.5" fill="#fff" fill-opacity=".72"/>
+    <rect x="84" y="44" width="52" height="6" rx="3" fill="#fff" fill-opacity=".28"/>
+    <rect x="22" y="88" width="154" height="6" rx="3" fill="#fff" fill-opacity=".12"/>
+  </g>
+
+  <g transform="translate(282 80)">
+    <rect width="132" height="46" rx="23" fill="#fff" fill-opacity=".08" stroke="#fff" stroke-opacity=".2"/>
+    <circle cx="25" cy="23" r="7" fill="#34d399"/>
+    <rect x="44" y="16" width="66" height="6" rx="3" fill="#fff" fill-opacity=".6"/>
+    <rect x="44" y="27" width="42" height="5" rx="2.5" fill="#fff" fill-opacity=".24"/>
+  </g>
+
+  <g transform="translate(110 448)">
+    <rect width="152" height="42" rx="21" fill="#fff" fill-opacity=".07" stroke="#fff" stroke-opacity=".16"/>
+    <circle cx="22" cy="21" r="7" fill="#8b5cf6"/>
+    <rect x="40" y="14" width="82" height="6" rx="3" fill="#fff" fill-opacity=".55"/>
+    <rect x="40" y="25" width="50" height="4" rx="2" fill="#fff" fill-opacity=".2"/>
+  </g>
+</svg>
